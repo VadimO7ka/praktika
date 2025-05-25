@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Шахматы online</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;            
+            font-family: sans-serif; 
+            margin: 20px;            
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-top: 0;   
+        }
+
+        h1 img {
+            width: 24px;  
+            height: 24px; 
+            vertical-align: middle;                   
+            margin-left: 5px; 
+        }
+
+        p {
+            font-size: 16px;     
+            line-height: 1.5;    
+            margin-top: 10px;   
+            margin-bottom: 20px; 
+        }
+
+        img.chessboard {
+            width: 250px; 
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Шахматы online <img src="https://i.ibb.co/YFCXX1nH/123123132313213.png"></h1>
+
+    <p>Приглашаем принять участие в турнире, который проходит каждую третью субботу месяца в 13.00. Победителям — купоны на покупки в интернет-магазинах.</p>
+
+    <img class="chessboard" src="https://i.ibb.co/YTk49Ng0/323211.png">
+
+</body>
+</html>
