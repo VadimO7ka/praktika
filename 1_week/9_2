@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pixel Design</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        header {
+            background-color: navy;
+            padding: 10px;
+        }
+
+        header #logo {
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        header nav {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+
+        header nav a {
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            text-decoration: none;
+            border: 1px solid navy;
+            border-radius: 10px;
+            margin: 0 10px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+
+        .special-link {
+            background-color: #2adede;
+            border: 1px solid #2adede;
+            color: black;
+        }
+
+        main {
+            padding: 15px;
+            background-color: white;
+        }
+
+        main h1 {
+            text-align: center;
+            font-size: 30px;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        main .content-block {
+            border: 1px solid navy;
+            border-radius: 15px;
+            margin: 20px 0;
+            padding: 0;
+            font-size: 16px;
+            background-color: white;
+        }
+
+        main .content-block h2 {
+            background-color: #ADD8E6;
+            color: black;
+            padding: 10px 20px;
+            margin: 0;
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+            font-size: 18px;
+        }
+
+        main .content-block .content-image {
+            display: block;
+            margin-left: 20px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            margin-right: 0;
+            width: 100px;
+        }
+
+        main .content-block p {
+            padding: 0 20px 20px 20px;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .important-news {
+            background-color: navy;
+            color: white;
+            font-style: italic;
+            padding: 0 3px;
+        }
+
+        footer {
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        footer .contacts-container {
+            border-left: 2px solid lightblue;
+            border-right: 2px solid lightblue;
+            padding: 0;
+        }
+
+        footer table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 5px;
+        }
+
+        footer td {
+            background-color: white;
+            padding: 8px 10px;
+            color: black;
+        }
+
+        footer .contacts-header-cell {
+            text-align: left;
+            font-weight: bold;
+            background-color: white;
+            padding: 8px 10px;
+        }
+
+        footer .label-cell {
+            width: auto;
+            padding-right: 5px;
+            font-weight: bold;
+        }
+
+        footer .data-cell {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/hRF42vT4/45465464.png" id="logo">
+        <nav>
+            <a href="#" class="special-link">Новости</a>
+            <a href="#">Конкурс</a>
+            <a href="#">Планы развития</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Pixel Design</h1>
+
+        <section class="content-block">
+            <h2>Наши последние новости</h2>
+            <p>В нашей студии новый дизайнер: пиксель Cube. Именно он будет выполнять ваши заказы по трёхмерной графике. Увлекается ладшафтным и интерьерным дизайном. Недавно он давал интервью газете <em class="important-news">Progress news</em>.</p>
+            <img src="https://i.ibb.co/Jwxj6vrH/445645645.png" class="content-image">
+        </section>
+
+        <section class="content-block">
+            <h2>Готовимся к конкурсу</h2>
+            <p>Весной следующего года мы участвуем в конкурсе дизайна. Наши работы будут представлены в направлениях: <em class="important-news">веб-дизайн, полиграфический дизайн, дизайн интерьеров</em>. По каждому направлению мы собираемся представить несколько работ, которые пройдут предварительный отбор в нашей студии.</p>
+            <img src="https://i.ibb.co/rKHwrx9x/78974897.png" class="content-image">
+        </section>
+
+        <section class="content-block">
+            <h2>Планы развития</h2>
+            <p>В этом месяце мы готовим <em class="important-news">годовое планирование нашей работы</em>. Кроме того, что мы принимаем и выполняем клиентские заказы по дизайну, мы участвуем в конкурсах, учимся на онлайн курсах, повышающих наше мастерство, просматриваем сборники лучших работ, которые можно найти в Интернете.</p>
+            <img src="https://i.ibb.co/TBhW7TVq/454654654.png" class="content-image">
+        </section>
+    </main>
+
+    <footer>
+        <div class="contacts-container"> 
+            <table>
+                <tr>
+                    <td colspan="2" class="contacts-header-cell">Контакты</td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Адрес:</td>
+                    <td class="data-cell">г. Техноград, ул. Дисплейная, 15</td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Тел.:</td>
+                    <td class="data-cell">8895-6341</td>
+                </tr>
+            </table>
+        </div>
+    </footer>
+</body>
+</html>
