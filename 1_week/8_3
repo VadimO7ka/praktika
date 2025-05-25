@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Праздники народов мира</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        header {
+            background-color: limegreen;
+            padding: 10px;
+            border-top: 3px solid navy;
+            height: 70px; 
+            display: flex;
+            align-items: center;
+        }
+
+        #header-icon {
+            height: 50px; 
+            width: auto;
+            margin-left: 15px;
+        }
+
+        main {
+            padding: 20px 30px; 
+            margin: 20px;
+            border-left: 3px dotted teal;
+            border-right: 3px dotted teal;
+        }
+
+        main h1 {
+            text-align: center;
+            font-size: 28px;
+            color: black;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .holidays-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .holidays-table th,
+        .holidays-table td {
+            border: 1px dotted teal;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .holidays-table thead th { 
+            font-weight: bold;
+            background-color: whitesmoke; 
+        }
+
+        .first-column-header {
+            width: 15%; 
+            vertical-align: top;
+            padding-top: 25px; 
+        }
+
+        .festival-column-header {
+            text-decoration: underline;
+            vertical-align: top;
+            padding-top: 5px;
+        }
+
+        .festival-image {
+            display: block;
+            margin: 8px auto 0 auto;
+            height: 60px; 
+            width: auto;
+        }
+
+        .renaissance-image {
+            height: 80px; 
+        }
+
+        .sakura-image, .holi-image {
+            width: 80px;
+            height: auto;
+        }
+
+        tbody th {
+            font-weight: bold;
+            width: 15%;
+            background-color: whitesmoke;
+        }
+
+        footer {
+            background-color: lavender; 
+            padding: 15px;
+            margin-top: 30px;
+            text-align: left; 
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+            color: dimgray; 
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/pjVYTZrm/3213213123.png" id="header-icon">
+    </header>
+
+    <main>
+        <h1>Праздники народов мира</h1>
+
+        <table class="holidays-table">
+            <thead>
+                <tr>
+                    <th class="first-column-header">Название праздника</th>
+                    <th class="festival-column-header">
+                        Праздник льда и снега
+                        <img src="https://i.ibb.co/V0qpbjP0/3213123123123.png" class="festival-image">
+                    </th>
+                    <th class="festival-column-header">
+                        Фестиваль Ренессанса
+                        <img src="https://i.ibb.co/m5TQdnf5/4342342.png" class="festival-image renaissance-image">
+                    </th>
+                    <th class="festival-column-header">
+                        Цветение сакуры
+                        <img src="https://i.ibb.co/7J7JDZB4/Screenshot-1.png" alt="Цветение сакуры" class="festival-image sakura-image">
+                    </th>
+                    <th class="festival-column-header">
+                        Фестиваль красок
+                        <img src="https://i.ibb.co/tMrRgWZF/Screenshot-2.png" alt="Фестиваль красок" class="festival-image holi-image">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Когда празднуется</th>
+                    <td>5 января - <br>5 февраля</td>
+                    <td>вторая половина <br>июля</td>
+                    <td>27 марта</td>
+                    <td>конец февраля - <br>начало марта</td>
+                </tr>
+                <tr>
+                    <th>Где празднуется</th>
+                    <td>Китай</td>
+                    <td>Испания</td>
+                    <td>Япония</td>
+                    <td>Индия</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>Сайт Лёши Гончарова ©</p>
+    </footer>
+</body>
+</html>
