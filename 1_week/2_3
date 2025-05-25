@@ -1,0 +1,12 @@
+<html>
+    <h1>Сайт аниме-художника</h1>
+    <p>Любишь придумывать истории? — Я рисую к ним аниме-персонажей в Figma.</p>
+    <p>Идеи беру из мультфильмов, а также из стока бесплатных изображений 
+      <a href="https://pixabay.com">pixabay.com</a>.
+    </p>
+    <p>Примеры картинок:</p>
+    <img src="https://cdn.pixabay.com/photo/2023/12/07/11/11/girl-8435339_1280.png" width="100">
+    <img src="https://cdn.pixabay.com/photo/2024/09/21/10/53/anime-9063542_1280.png" width="100">
+    <img src="https://cdn.pixabay.com/photo/2023/12/07/11/11/girl-8435340_1280.png" width="100">
+    <p>Скоро я выложу здесь примеры своих работ!</p>
+</html>
