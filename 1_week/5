@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Кодекс Охотника: Серия книг Юрия Винокурова и Олега Сапфира</title>
+   </head>
+   <body style="background-color: Gainsboro; font-family: sans-serif;">
+      <header style="background-color: darkslategray; color: white; padding: 20px 0; text-align: center;">
+         <img src="https://i.imgur.com/LQ1MzvR.jpeg" alt="Логотип Кодекс Охотника" style="width:80px; height:80px; display:block; margin: 0 auto 15px auto; border: 1px solid dodgerblue; border-radius: 8px;">
+         <h1 style="color: white; text-align: center; font-size: 50px; margin-bottom: 20px;">Серия книг "Кодекс Охотника"</h1>
+         <nav>
+            <a href="#o_serii_ko" style="color: lightgray; font-size: 18px; text-decoration: none; margin: 0 15px;">О серии</a>
+            <a href="#avtory_ko" style="color: lightgray; font-size: 18px; text-decoration: none; margin: 0 15px;">Об авторах</a>
+            <a href="#knigi_v_serii_ko" style="color: lightgray; font-size: 18px; text-decoration: none; margin: 0 15px;">Книги серии</a>
+         </nav>
+      </header>
+      <main style="padding: 20px;">
+         <h2 id="o_serii_ko" style="color: seagreen; font-size: 40px;">О серии книг "Кодекс Охотника"</h2>
+         <p style="font-size: 20px;">
+            "Кодекс Охотника" — это серия книг, написанная Юрием Винокуровым и Олегом Сапфиром в жанре боевого фэнтези с элементами ЛитРПГ. <br>Действие происходит в мире, где существует система прокачки персонажей, а Охотники — специально обученные бойцы — противостоят различным монстрам и угрозам, следуя правилам своего Кодекса.
+         </p>
+         <p style="font-size: 20px;">
+            В книгах серии читатели следят за приключениями главных героев, их развитием, столкновениями с врагами и решением сложных задач. Серия характеризуется <em>диначным повествованием и проработанной боевой системой</em>.
+         </p>
+         <h2 id="avtory_ko" style="color: steelblue; font-size: 40px;">Об авторах</h2>
+         <p style="font-size: 20px;">
+            <strong>Юрий Винокуров</strong> и <strong>Олег Сапфир</strong> — соавторы, известные в кругах читателей русскоязычного фэнтези и ЛитРПГ. <br>Их совместное творчество включает несколько популярных циклов, в том числе "Кодекс Охотника". Их страницы на портале Author.Today можно найти по ссылкам внизу страницы.
+         </p>
+         <div style="text-align: center; margin: 30px 0;">
+            <img src="https://cm.author.today/content/2022/10/18/b3dba994e4224c42bf08ab8fcffb6ae5.jpg?width=265&height=400&mode=max" alt="Обложка Кодекс Охотника" width="300" style="border: 1px solid silver; border-radius: 4px;">
+         </div>
+         <h2 id="knigi_v_serii_ko" style="color: slateblue; font-size: 40px; text-align:center;">Книги в серии "Кодекс Охотника"</h2>
+         <table style="width: 90%; margin: 20px auto; background-color: ghostwhite; font-size: 20px; border-collapse: collapse; border: 2px solid lightslategray;">
+            <thead style="background-color: lavender;">
+               <tr>
+                  <th style="border: 1px solid lightslategray; padding: 10px; text-align: left; color: darkslategray;">Название (пример)</th>
+                  <th style="border: 1px solid lightslategray; padding: 10px; text-align: left; color: darkslategray;">Ключевые моменты</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td style="border: 1px solid lightslategray; padding: 10px;">Кодекс Охотника. Книга 1</td>
+                  <td style="border: 1px solid lightslategray; padding: 10px;">Введение в мир, знакомство с системой и первыми Охотниками.</td>
+               </tr>
+               <tr>
+                  <td style="border: 1px solid lightslategray; padding: 10px;">Кодекс Охотника. Книга 2</td>
+                  <td style="border: 1px solid lightslategray; padding: 10px;">Развитие персонажей, столкновение с более серьезными угрозами.</td>
+               </tr>
+               <tr>
+                  <td style="border: 1px solid lightslategray; padding: 10px;">Кодекс Охотника. Книга 3</td>
+                  <td style="border: 1px solid lightslategray; padding: 10px;">Раскрытие глобальных событий, сражения с сильными противниками.</td>
+               </tr>
+               <tr>
+                  <td style="border: 1px solid lightslategray; padding: 10px; color: dimgray;"><i>(Список может быть неполным, проверяйте актуальную информацию у авторов)</i></td>
+                  <td style="border: 1px solid lightslategray; padding: 10px; color: dimgray;"><i>Серия активно развивается.</i></td>
+               </tr>
+            </tbody>
+         </table>
+         
+         <h2 style="color: chocolate; font-size: 40px; text-align:center;">Форма обратной связи</h2>
+         <form style="width: 80%; max-width: 500px; margin: 20px auto; padding: 20px; background-color: linen; border: 1px solid burlywood; border-radius: 8px; font-size: 18px;">
+            <p><label>Введите имя <input type="text" style="padding: 5px; border: 1px solid sienna; border-radius: 3px; margin-left: 5px;"></label></p>
+            <p><label>Введите телефон <input type="tel" style="padding: 5px; border: 1px solid sienna; border-radius: 3px; margin-left: 5px;"></label></p>
+            <p><label><input type="checkbox" style="margin-right: 5px;">Подключить рассылку</label></p>
+            <input type="submit" value="Отправить" style="padding: 8px 18px; font-size: 16px; background-color: peru; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+         </form>
+
+      </main>
+      <footer style="background-color: darkslategray; color: white; padding: 20px 0; text-align: center;">
+         <p style="font-size: 18px; margin-bottom: 10px; color: lightgray;">
+            <strong>Следите за авторами на Author.Today:</strong>
+         </p>
+         <div style="margin-bottom: 15px;">
+            <a href="https://author.today/u/yuriyvinokurov" target="_blank" title="Юрий Винокуров" style="margin: 0 10px; text-decoration: none; color: skyblue; font-size: 18px;">
+            Юрий Винокуров
+            </a>
+            <a href="https://author.today/u/sapfir" target="_blank" title="Олег Сапфир" style="margin: 0 10px; text-decoration: none; color: skyblue; font-size: 18px;">
+            Олег Сапфир
+            </a>
+            <a href="https://author.today/" target="_blank" title="Author.Today" style="margin: 0 10px;">
+            <img src="https://i.imgur.com/phBVoEj.png" alt="Author.Today" style="width:30px; height:30px; vertical-align: middle; border-radius: 4px;">
+            </a>
+         </div>
+         <p style="font-size: 16px; color: slategray;">© 2025 Фан-страница серии "Кодекс Охотника". Создано по мотивам произведений.</p>
+      </footer>
+   </body>
+</html>
