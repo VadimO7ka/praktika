@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computer Market</title>
+    <style>
+        body {
+            background-color: white;
+            margin: 0; 
+            font-family: sans-serif; 
+        }
+
+        header {
+            background-color: tan; 
+            padding: 10px;
+        }
+
+        header img {
+            width: 70px;
+            height: 70px;
+            vertical-align: middle; 
+        }
+
+        main {
+            padding: 15px; 
+        }
+
+        main p.promo-text {
+            color: blue; 
+            font-size: 15px; 
+            display: inline; 
+            margin-left: 5px; 
+            vertical-align: middle; 
+        }
+
+        main h1 {
+            text-align: center; 
+            font-size: 32px;    
+            color: black;       
+            margin-top: 20px;   
+            margin-bottom: 20px;
+        }
+
+        main h1 img { 
+            width: 50px;  
+            height: 50px; 
+            margin-left: 5px; 
+            vertical-align: middle; 
+        }
+
+        /* Секция с желтым фоном */
+        .offers-section {
+            background-color: yellow; 
+            padding: 15px; 
+            margin-top: 15px; 
+        }
+
+        main p.description-text {
+            font-size: 18px;    
+            color: black;       
+            margin-bottom: 15px;
+        }
+
+        main p.product-imgs {
+            text-align: center; 
+        }
+
+        main p.product-imgs img {
+            width: 100px;  
+            height: 100px; 
+            margin: 5px;   
+        }
+
+        footer {
+            background-color: white; 
+            padding: 15px;         
+            text-align: left;      
+            margin-top: 30px;      
+        }
+
+        footer p { 
+            font-size: 16px;        
+            color: blue;            
+            margin-top: 0;          
+            padding-bottom: 8px;    
+            margin-bottom: 15px;    
+        }
+
+        footer p.footer-cont {
+            border-bottom: 10px solid sienna;  
+        }
+
+        footer p.footer-address {
+            border-bottom: 10px solid sienna;                             
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/8Dnwbf95/122.png">
+    </header>
+
+    <main>
+        <p class="promo-text">Сделай покупку до нового года, получи подарок!</p>
+        <h1>Computer Market <img src="https://i.ibb.co/HT1DThwF/123.png"> <img src="https://i.ibb.co/whgt8Jq3/124.png"></h1>
+        
+        <div class="offers-section">
+            <p class="description-text">Решили приобрести компьютер или планшет? Торопитесь, в декабре у нас скидки!</p>
+            <p class="product-imgs">
+                <img src="https://i.ibb.co/B2TV87Z3/125.png">
+                <img src="https://i.ibb.co/N2m1gdB3/126.png">
+                <img src="https://i.ibb.co/WWLHW7xw/127.png">
+                <img src="https://i.ibb.co/23bjB3cd/128.png">
+                <img src="https://i.ibb.co/m5C36txt/129.png">
+                <img src="https://i.ibb.co/KjQ3QPd9/1210.png">
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p class="footer-cont">Контакты</p>
+        <p class="footer-address">Адрес: г. Техноград, ул. Дисплейная, 15</p>
+        <p> Тел.: 8895-6341</p>
+    </footer>
+</body>
+</html>
