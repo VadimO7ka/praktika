@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Design 24/7</title>
+    <style>
+       body {
+    font-family: sans-serif;
+    background-color: navy;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.design247-header {
+    background-image: url('https://i.ibb.co/8nX7HX7r/Screenshot-6.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.header-penguin {
+    width: 50px;
+    height: 50px;
+}
+
+h1.main-title {
+    font-size: 42px;
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+h1.main-title .title-smiley {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.marker-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.design247-main {
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px 40px 15px 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.designer-intro {
+    color: darkslateblue;
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 17px;
+    margin-top: 0;
+}
+
+.design247-main ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.design247-main li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: darkslateblue;
+}
+
+.ink-splash {
+    display: block;
+    width: 90%;
+    max-width: 380px;
+    margin: 10px auto 15px auto;
+}
+
+.social-icons-footer-container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: auto;
+}
+
+.social-icons-footer-container .icon {
+    width: 38px;
+    height: 38px;
+    margin: 0 8px;
+    display: inline-block;
+}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="design247-header">
+        <img src="https://i.ibb.co/tMdhx0ZL/Screenshot-5.png" alt="Пингвин" class="icon header-penguin">
+    </header>
+
+    <h1 class="main-title">Design 24/7 <img src="https://i.ibb.co/Fq6Dpq2c/Screenshot-4.png" alt="Смайлик" class="icon title-smiley"></h1>
+
+    <main class="design247-main">
+        <p class="designer-intro">Дизайнер, рисую для сайтов:</p>
+
+        <ul>
+            <li><img src="https://i.ibb.co/5hZXjRxB/Screenshot-7.png" class="marker-icon">логотипы;</li>
+            <li><img src="https://i.ibb.co/5hZXjRxB/Screenshot-7.png" class="marker-icon">иконки;</li>
+            <li><img src="https://i.ibb.co/5hZXjRxB/Screenshot-7.png" class="marker-icon">коллажи.</li>
+        </ul>
+
+        <img src="https://i.ibb.co/QjP8jqNN/4894561.png" class="ink-splash">
+
+    </main>
+
+    <div class="social-icons-footer-container">
+        <img src="https://i.ibb.co/jPnyq4Km/Screenshot-3.png" class="icon">
+        <img src="https://i.ibb.co/hRtRG2j0/41412421.png"  class="icon">
+    </div>
+
+</body>
+</html>
+
+
+
+
