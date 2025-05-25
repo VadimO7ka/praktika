@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задание 1.9.1</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center; 
+        }
+
+        h1 {
+            color: navy; 
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            margin: 5px;
+            border: 1px solid lightgray; 
+        }
+
+        .highlighted-image {
+            border: 10px solid blueviolet;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Дельфинарий приглашает</h1>
+
+    <div>
+        <img src="https://i.ibb.co/PvmSsHST/1213241561.png" >
+        <img src="https://i.ibb.co/rG91jcPR/543543534.png" class="highlighted-image">
+        <img src="https://i.ibb.co/bjbnqP5x/87868686.png">
+    </div>
+
+</body>
+</html>
