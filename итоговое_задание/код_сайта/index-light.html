@@ -1,1 +1,1087 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная Станция (Светлая тема) | Звездные Горизонты</title>
+    <style>
+        /* Глобальные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Стандартный шрифт */
+        }
 
+        body {
+            background-color: #e6f7ff; /* Светлый фон */
+            color: #333344; /* Темный текст */
+            min-height: 100vh;
+            display: block;
+            line-height: 1.6; /* Межстрочный интервал */
+        }
+
+        /* Стилизация карточек и секций (светлая версия) */
+        .bg-space-card-light {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(150, 150, 200, 0.2);
+            box-shadow: 0 0 10px rgba(150, 150, 200, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Акцентные цвета (светлая версия) */
+        .accent-electric-blue-light {
+            background-color: #66eaff;
+        }
+        .text-vibrant-purple-dark {
+            color: #6a0dad;
+        }
+        .text-dark-space {
+            color: #333344;
+        }
+        .text-accent-link-light {
+            color: #00b8cc;
+        }
+        .footer-bg-light-space {
+            background-color: #d0e0f0;
+        }
+
+        /* Стилизация шапки */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(150, 150, 200, 0.2);
+            padding: 20px 15px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex; /* Используем flexbox для шапки */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-group {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-group img {
+            height: 48px;
+            width: 48px;
+            margin-right: 16px;
+            border-radius: 50%;
+        }
+
+        header .logo-group span {
+            font-size: 28px;
+            font-weight: bold;
+            color: #6a0dad;
+        }
+
+        header .menu-toggle {
+            display: none; /* Скрыто на больших экранах */
+            font-size: 32px;
+            cursor: pointer;
+            color: #00b8cc;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Горизонтальное меню */
+            align-items: center;
+        }
+
+        header nav li {
+            margin-left: 24px;
+        }
+
+        header nav a {
+            color: #333344;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #6a0dad;
+        }
+
+        /* Стилизация основного содержимого */
+        section {
+            padding: 64px 20px;
+            margin-bottom: 30px;
+        }
+
+        section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #6a0dad;
+        }
+
+        /* Стили для имитации слайдера (без JS) */
+        .slider-placeholder {
+            position: relative;
+            max-width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-item {
+            width: 100%;
+            display: block; /* Отображаем только один элемент */
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 288px; /* Фиксированная высота */
+            object-fit: cover; /* Обрезка изображения */
+            display: block;
+        }
+
+        .slider-item .content {
+            padding: 20px;
+        }
+
+        .slider-item h3 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #6a0dad;
+            margin-bottom: 12px;
+        }
+
+        .slider-item p {
+            color: #333344;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .slider-item .rating {
+            font-size: 24px;
+            color: #00b8cc;
+            margin-right: 12px;
+        }
+
+        .slider-item .rating-text {
+            font-size: 18px;
+            color: #333344;
+        }
+
+        .slider-item .button {
+            display: inline-block;
+            background-color: #66eaff;
+            color: #333344;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .slider-item .button:hover {
+            background-color: #33d1e3;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .slider-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(150, 150, 200, 0.5);
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .slider-dots .dot.active {
+            background-color: #00b8cc;
+        }
+
+        /* Стилизация формы входа */
+        .auth-form-container {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333344;
+        }
+
+        .form-input-light {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(150, 150, 200, 0.3);
+            color: #333344;
+            font-size: 16px;
+            transition-property: border-color;
+            transition-duration: 0.3s;
+        }
+
+        .form-input-light:focus {
+            border-color: #00b8cc;
+            outline: none;
+        }
+
+        .form-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 16px;
+        }
+
+        .form-buttons .submit-button {
+            width: 100%;
+            background-color: #66eaff;
+            color: #333344;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+            margin-bottom: 16px;
+        }
+
+        .form-buttons .submit-button:hover {
+            background-color: #33d1e3;
+        }
+
+        .form-buttons .forgot-password-link {
+            color: #00b8cc;
+            text-decoration: none;
+            font-size: 18px;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .form-buttons .forgot-password-link:hover {
+            color: #6a0dad;
+        }
+
+        /* Секция "О проекте" */
+        .about-section-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 50%;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-right: 40px;
+        }
+
+        .about-text {
+            width: 50%;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            color: #333344;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Секция видеоприветствия */
+        .video-section-content {
+            max-width: 768px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-placeholder-frame {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ccc; /* Заглушка для видео */
+            color: #666;
+            font-size: 24px;
+        }
+
+        /* Секция космических миссий */
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Адаптивная сетка */
+            gap: 32px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .mission-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition-property: transform;
+            transition-duration: 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: scale(1.02);
+        }
+
+        .mission-card-image {
+            height: 208px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mission-card-content {
+            padding: 20px;
+        }
+
+        .mission-card-content h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6a0dad;
+            margin-bottom: 12px;
+        }
+
+        .mission-card-content p {
+            color: #333344;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .mission-card-details {
+            display: flex;
+            justify-content: space-between;
+            color: #333344;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .mission-card-button {
+            display: block;
+            text-align: center;
+            background-color: #66eaff;
+            color: #333344;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .mission-card-button:hover {
+            background-color: #33d1e3;
+        }
+
+        /* Секция поиска */
+        .search-form-container {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .search-form {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 16px 20px;
+            border-radius: 6px 0 0 6px;
+            border: 1px solid rgba(150, 150, 200, 0.3);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333344;
+            font-size: 18px;
+            transition-property: border-color;
+            transition-duration: 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #00b8cc;
+            outline: none;
+        }
+
+        .search-button {
+            background-color: #66eaff;
+            color: #333344;
+            padding: 16px 32px;
+            border-radius: 0 6px 6px 0;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #33d1e3;
+        }
+
+        /* Секция отзывов */
+        .reviews-slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .reviews-item {
+            width: 100%;
+            display: block; /* Отображаем только один элемент */
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .reviewer-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 20px;
+        }
+
+        .reviewer-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6a0dad;
+        }
+
+        .review-date {
+            color: #333344;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .review-text {
+            color: #333344;
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .read-more-link {
+            display: inline-block;
+            color: #00b8cc;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .read-more-link:hover {
+            color: #6a0dad;
+        }
+
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .reviews-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(150, 150, 200, 0.5);
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .reviews-dots .dot.active {
+            background-color: #00b8cc;
+        }
+
+        /* Секция подписки */
+        .subscribe-form-container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscribe-form-container h2 {
+            margin-bottom: 32px;
+        }
+
+        .subscribe-form .form-group {
+            margin-bottom: 24px;
+        }
+
+        .subscribe-form .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .subscribe-form input[type="checkbox"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(150, 150, 200, 0.3);
+            border-radius: 3px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+        .subscribe-form input[type="checkbox"]:checked {
+            background-color: #00b8cc;
+            border-color: #00b8cc;
+        }
+
+        .subscribe-form input[type="checkbox"]:checked::before {
+            content: '✔';
+            display: block;
+            color: #333344;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .subscribe-form label {
+            color: #333344;
+            font-size: 16px;
+        }
+
+        .subscribe-button {
+            width: 100%;
+            background-color: #66eaff;
+            color: #333344;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .subscribe-button:hover {
+            background-color: #33d1e3;
+        }
+
+        /* Стилизация футера */
+        footer {
+            background-color: #d0e0f0;
+            padding: 40px 15px;
+            margin-top: 50px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка для колонок */
+            gap: 40px;
+        }
+
+        .footer-about .logo-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-about .logo-group img {
+            height: 40px;
+            width: 40px;
+            margin-right: 12px;
+            border-radius: 50%;
+        }
+
+        .footer-about .logo-group span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6a0dad;
+        }
+
+        .footer-about div {
+            margin-bottom: 8px;
+            color: #333344;
+        }
+
+        .footer-about a {
+            color: #00b8cc;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-about a:hover {
+            color: #6a0dad;
+        }
+
+        .footer-links h3 {
+            color: #6a0dad;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #333344;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #6a0dad;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(160, 160, 192, 0.5);
+            color: #333344;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 1024px) {
+            header nav li {
+                margin-left: 15px;
+            }
+            .about-section-content {
+                flex-direction: column; /* Изменение 1: колонки в секции "О проекте" становятся вертикальными */
+            }
+            .about-image {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            .about-text {
+                width: 100%;
+            }
+            .about-text h2 {
+                text-align: center;
+            }
+            .missions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Изменение 2: корректировка сетки миссий */
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 796px) {
+            header .container {
+                flex-direction: column; /* Изменение 3: шапка становится вертикальной */
+                align-items: center;
+            }
+            header .menu-toggle {
+                display: block; /* Показать кнопку меню на мобильных */
+                margin-top: 10px;
+            }
+            header nav {
+                width: 100%;
+                display: none; /* Скрыть меню по умолчанию, будет управляться JS */
+            }
+            header nav.active {
+                display: block; /* Показать меню при активном состоянии */
+            }
+            header nav ul {
+                flex-direction: column; /* Изменение 4: меню становится вертикальным */
+                margin-top: 20px;
+            }
+            header nav li {
+                margin: 10px 0;
+            }
+            section h2 {
+                font-size: 28px;
+            }
+            .slider-item p, .slider-item .rating-text {
+                font-size: 16px;
+            }
+            .slider-item h3 {
+                font-size: 24px;
+            }
+            .form-buttons {
+                flex-direction: column;
+            }
+            .form-buttons .submit-button {
+                margin-bottom: 10px;
+            }
+            .search-form {
+                flex-direction: column;
+            }
+            .search-input {
+                border-radius: 6px;
+                margin-bottom: 10px;
+            }
+            .search-button {
+                border-radius: 6px;
+            }
+            .reviews-item {
+                padding: 20px;
+            }
+            .reviewer-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .reviewer-avatar {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .review-text {
+                font-size: 16px;
+            }
+            footer .container {
+                grid-template-columns: 1fr; /* Колонки футера становятся вертикальными */
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-about .logo-group {
+                justify-content: center;
+            }
+            .footer-about div, .footer-links ul {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col leading-relaxed">
+    <!-- Блок навигации (шапка страницы) -->
+    <header>
+        <div class="container">
+            <div class="logo-group">
+                <!-- Логотип Звездные Горизонты -->
+                <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/48x48/66eaff/333344?text=🚀';">
+                <span>Звездные Горизонты</span>
+            </div>
+            <!-- Кнопка для мобильного меню (скрыта на больших экранах) -->
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <!-- Основная навигация -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="account.html">Мой Кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="competition.html">Миссии</a></li>
+                    <li><a href="#auth">Вход</a></li>
+                    <li><a href="#about">О Проекте</a></li>
+                    <li><a href="#search">Поиск</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                    <li>
+                        <!-- Кнопка для смены темы (функционал не реализован) -->
+                        <button style="background-color: transparent; border: none; color: #00b8cc; cursor: pointer; font-size: 18px; font-weight: bold;">
+                            <a href="index.html" style="color: #00b8cc; text-decoration: none; transition-property: color; transition-duration: 0.3s;">Темная тема</a>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Секция с космическими открытиями (слайдер - статическая заглушка) -->
+    <section class="bg-space-card-light">
+        <div class="container">
+            <h2>Последние Открытия и Миссии</h2>
+            <div class="slider-placeholder">
+                <div class="slider-item">
+                    <!-- Изображение планеты -->
+                    <img src="https://i.ibb.co/C3t3mSDs/3.png" alt="[Изображение планеты]" onerror="this.onerror=null;this.src='https://placehold.co/800x300/e0e0ff/6a0dad?text=Космический+Корабль';">
+                    <div class="content">
+                        <h3>Миссия: Исследование Экзопланеты X-7</h3>
+                        <p>Примите участие в виртуальной экспедиции к далекой экзопланете и раскройте ее тайны.</p>
+                        <div style="display: flex; align-items: center; margin-bottom: 16px;">
+                            <span class="rating">★★★★☆</span>
+                            <span class="rating-text">4.6/5</span>
+                        </div>
+                        <a href="competition.html" class="button">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Элементы управления слайдером (статические) -->
+            <div class="slider-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция входа в личный кабинет -->
+    <section class="bg-space-card-light" id="auth">
+        <div class="container">
+            <div class="auth-form-container bg-space-card-light">
+                <h2>Вход на Космическую Станцию</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Код доступа (Email)</label>
+                        <input type="email" id="email" placeholder="Введите ваш email" class="form-input-light">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" placeholder="Введите ваш пароль" class="form-input-light">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-button">Войти в Шлюз</button>
+                        <a href="#" class="forgot-password-link">Забыли код доступа?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О Проекте" -->
+    <section class="bg-space-card-light" id="about">
+        <div class="container">
+            <div class="about-section-content">
+                <!-- Изображение планеты Земля из космоса -->
+                <div class="about-image" style="background-image: url('https://i.ibb.co/C3t3mSDs/3.png');" onerror="this.onerror=null;this.style.backgroundImage='url(https://placehold.co/600x400/e0e0ff/6a0dad?text=Планета+Земля)';"></div>
+                <div class="about-text">
+                    <h2>О проекте «Звездные Горизонты»</h2>
+                    <p>«Звездные Горизонты» — это ведущая платформа, посвященная исследованию космоса, астрономии и будущему человечества за пределами Земли. Мы объединяем ученых, инженеров и энтузиастов для обмена знаниями и вдохновения.</p>
+                    <p>Мы верим, что понимание Вселенной и совместные усилия в освоении космоса открывают новые горизонты для развития цивилизации. Наши проекты способствуют научному прогрессу и подготовке будущих поколений исследователей.</p>
+                    <p>С 2023 года мы способствуем новым открытиям и образованию в области космоса.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с видеоприветствием (статическая заглушка) -->
+    <section class="bg-space-card-light">
+        <div class="container">
+            <div class="video-section-content">
+                <h2>Приветствие от Команды «Звездные Горизонты»</h2>
+                <div class="video-placeholder-frame">
+                    Видео-плеер здесь (без JavaScript, это просто заглушка)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с космическими миссиями -->
+    <section class="bg-space-card-light" id="competitions">
+        <div class="container">
+            <h2>Наши Космические Миссии</h2>
+            <div class="missions-grid">
+                <div class="mission-card">
+                    <!-- Изображение марсианского пейзажа -->
+                    <div class="mission-card-image" style="background-image: url('https://i.ibb.co/C3t3mSDs/3.png');" onerror="this.onerror=null;this.style.backgroundImage='url(https://placehold.co/400x200/e0e0ff/6a0dad?text=Марс)';"></div>
+                    <div class="mission-card-content">
+                        <h3>Миссия: Колонизация Марса</h3>
+                        <p>Изучите планы по созданию первой колонии на Красной планете.</p>
+                        <div class="mission-card-details">
+                            <span>Участников: 150</span>
+                            <span>Рейтинг: 4.5</span>
+                        </div>
+                        <a href="competition.html" class="mission-card-button">Присоединиться</a>
+                    </div>
+                </div>
+                <div class="mission-card">
+                    <!-- Изображение черной дыры -->
+                    <div class="mission-card-image" style="background-image: url('https://i.ibb.co/C3t3mSDs/3.png');" onerror="this.onerror=null;this.style.backgroundImage='url(https://placehold.co/400x200/e0e0ff/6a0dad?text=Черная+Дыра)';"></div>
+                    <div class="mission-card-content">
+                        <h3>Исследование: Загадки Черных Дыр</h3>
+                        <p>Погрузитесь в тайны гравитационных аномалий и их влияние на Вселенную.</p>
+                        <div class="mission-card-details">
+                            <span>Участников: 95</span>
+                            <span>Рейтинг: 4.7</span>
+                        </div>
+                        <a href="competition.html" class="mission-card-button">Присоединиться</a>
+                    </div>
+                </div>
+                <div class="mission-card">
+                    <!-- Изображение спутника -->
+                    <div class="mission-card-image" style="background-image: url('https://i.ibb.co/C3t3mSDs/3.png');" onerror="this.onerror=null;this.style.backgroundImage='url(https://placehold.co/400x200/e0e0ff/6a0dad?text=Спутник)';"></div>
+                    <div class="mission-card-content">
+                        <h3>Проект: Сеть Спутников для Наблюдения</h3>
+                        <p>Узнайте о разработке новой сети спутников для мониторинга Земли и космоса.</p>
+                        <div class="mission-card-details">
+                            <span>Участников: 60</span>
+                            <span>Рейтинг: 4.9</span>
+                        </div>
+                        <a href="competition.html" class="mission-card-button">Присоединиться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция поиска миссии -->
+    <section class="bg-space-card-light" id="search">
+        <div class="container">
+            <div class="search-form-container">
+                <h2>Найти Космическую Миссию</h2>
+                <form class="search-form">
+                    <input type="text" placeholder="Введите название миссии..." class="search-input">
+                    <button type="submit" class="search-button">Поиск</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отзывов (слайдер - статическая заглушка) -->
+    <section class="bg-space-card-light">
+        <div class="container">
+            <h2>Отзывы Наших Космонавтов</h2>
+            <div class="reviews-slider-container">
+                <div class="reviews-item">
+                    <div class="reviewer-info">
+                        <!-- Изображение профиля космонавта -->
+                        <div class="reviewer-avatar" style="background-image: url('https://i.ibb.co/nsxmdMhX/1.png');" onerror="this.onerror=null;this.style.backgroundImage='url(https://placehold.co/60x60/e0e0ff/6a0dad?text=👨‍🚀)';"></div>
+                        <div>
+                            <h4 class="reviewer-name">Космонавт Петров</h4>
+                            <p class="review-date">20 мая 2025</p>
+                        </div>
+                    </div>
+                    <p class="review-text">"Программа 'Звездные Горизонты' открыла для меня новые измерения! Я узнал столько нового о Вселенной и ее тайнах. Интерфейс очень интуитивный, а информация вдохновляет на дальнейшие исследования. Очень рекомендую всем, кто мечтает о космосе!"</p>
+                    <a href="#" class="read-more-link">Читать полностью</a>
+                </div>
+            </div>
+            <!-- Элементы управления слайдером отзывов (статические) -->
+            <div class="reviews-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция подписки на новости -->
+    <section class="bg-space-card-light">
+        <div class="container">
+            <div class="subscribe-form-container bg-space-card-light">
+                <h2>Подпишитесь на Космические Новости</h2>
+                <form class="subscribe-form">
+                    <div class="form-group">
+                        <label for="subscribe-name">Ваше имя</label>
+                        <input type="text" id="subscribe-name" placeholder="Введите ваше имя" class="form-input-light">
+                    </div>
+                    <div class="form-group">
+                        <label for="subscribe-email">Ваш Космический Email</label>
+                        <input type="email" id="subscribe-email" placeholder="Введите ваш email" class="form-input-light">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="subscribe-agree">
+                        <label for="subscribe-agree">Я согласен(на) получать информацию о новых миссиях и открытиях.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">Подписаться на Запуск</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок футера (нижняя часть страницы) -->
+    <footer class="footer-bg-light-space" id="contacts">
+        <div class="container">
+            <div class="footer-about">
+                <div class="logo-group">
+                    <!-- Логотип Звездные Горизонты -->
+                    <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/40x40/66eaff/333344?text=�';">
+                    <span>Звездные Горизонты</span>
+                </div>
+                <div>
+                    Межзвездная почта: <a href="mailto:contact@starhorizons.space">contact@starhorizons.space</a>
+                </div>
+                <div>
+                    Космическая связь: <a href="tel:+19876543210">+1 (987) 654-3210</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Навигация по Галактике</h3>
+                <ul>
+                    <li><a href="index.html">Главная Станция</a></li>
+                    <li><a href="registration.html">Регистрация Экипажа</a></li>
+                    <li><a href="competition.html">Космические Миссии</a></li>
+                    <li><a href="account.html">Мой Космический Кабинет</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные Орбиты</h3>
+                <ul>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="404.html">О Проекте</a></li>
+                    <li><a href="#search">Поиск</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Звездные Горизонты. Все права на Вселенную защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
+�
