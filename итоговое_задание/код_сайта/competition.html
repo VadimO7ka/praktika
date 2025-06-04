@@ -1,1 +1,569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миссия: Исследование Экзопланеты X-7 | Звездные Горизонты</title>
+    <style>
+        /* Глобальные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Стандартный шрифт */
+        }
 
+        body {
+            background-color: #000022; /* Темно-синий фон */
+            color: #e0f2f7; /* Светлый текст */
+            min-height: 100vh;
+            display: block;
+            line-height: 1.6; /* Межстрочный интервал */
+        }
+
+        /* Стилизация карточек и секций */
+        .bg-space-card {
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Акцентные цвета */
+        .accent-electric-blue {
+            background-color: #00eaff;
+        }
+        .text-vibrant-purple {
+            color: #a020f0;
+        }
+        .text-light-space {
+            color: #e0f2f7;
+        }
+        .text-accent-link-space {
+            color: #00eaff;
+        }
+        .footer-bg-space {
+            background-color: #00001a;
+        }
+
+        /* Стилизация шапки */
+        header {
+            background-color: rgba(0, 0, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+            padding: 20px 15px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex; /* Используем flexbox для шапки */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-group {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-group img {
+            height: 48px;
+            width: 48px;
+            margin-right: 16px;
+            border-radius: 50%;
+        }
+
+        header .logo-group span {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a020f0;
+        }
+
+        header .menu-toggle {
+            display: none; /* Скрыто на больших экранах */
+            font-size: 32px;
+            cursor: pointer;
+            color: #00eaff;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Горизонтальное меню */
+            align-items: center;
+        }
+
+        header nav li {
+            margin-left: 24px;
+        }
+
+        header nav a {
+            color: #e0f2f7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #a020f0;
+        }
+
+        /* Стилизация основного содержимого */
+        section {
+            padding: 64px 20px;
+        }
+
+        section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section .text-center {
+            text-align: center;
+        }
+
+        section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        section img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .mission-details-container {
+            display: flex; /* Используем flexbox для колонок */
+            gap: 40px;
+            padding: 32px;
+        }
+
+        .mission-description {
+            flex-grow: 2; /* Занимает 2/3 ширины */
+            width: 66.66%; /* Примерная ширина */
+        }
+
+        .mission-description h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-align: left; /* Выравнивание заголовка описания */
+        }
+
+        .mission-description p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .mission-info-sidebar {
+            width: 33.33%; /* Занимает 1/3 ширины */
+        }
+
+        .mission-info-block {
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .mission-info-block h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 234, 255, 0.15);
+        }
+
+        .mission-info-item {
+            margin-bottom: 16px;
+        }
+
+        .mission-info-item div:first-child {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .mission-info-item div:last-child {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .mission-participation-block {
+            padding: 24px;
+        }
+
+        .mission-participation-block h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 234, 255, 0.15);
+        }
+
+        .mission-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .mission-rating span:first-child {
+            font-size: 32px;
+            margin-right: 12px;
+        }
+
+        .mission-rating span:last-child {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .mission-participants {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .mission-participants span:first-child {
+            font-size: 24px;
+            margin-right: 12px;
+        }
+
+        .mission-participants span:last-child {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .participate-button {
+            display: block;
+            width: 100%;
+            background-color: #00eaff;
+            color: #000022;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .participate-button:hover {
+            background-color: #00b8cc;
+        }
+
+        /* Стилизация футера */
+        footer {
+            background-color: #00001a;
+            padding: 40px 15px;
+            margin-top: 50px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка для колонок */
+            gap: 40px;
+        }
+
+        .footer-about .logo-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-about .logo-group img {
+            height: 40px;
+            width: 40px;
+            margin-right: 12px;
+            border-radius: 50%;
+        }
+
+        .footer-about .logo-group span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #a020f0;
+        }
+
+        .footer-about div {
+            margin-bottom: 8px;
+            color: #e0f2f7;
+        }
+
+        .footer-about a {
+            color: #00eaff;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-about a:hover {
+            color: #a020f0;
+        }
+
+        .footer-links h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #e0f2f7;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #a020f0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 68, 0.5);
+            color: #e0f2f7;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 1024px) {
+            header nav li {
+                margin-left: 15px;
+            }
+            .mission-details-container {
+                flex-direction: column; /* Колонки становятся вертикальными */
+                gap: 30px;
+            }
+            .mission-description, .mission-info-sidebar {
+                width: 100%; /* Занимают всю ширину */
+            }
+            .mission-description h2 {
+                text-align: center; /* Центрируем заголовок */
+            }
+            footer .container {
+                grid-template-columns: 1fr; /* Колонки футера становятся вертикальными */
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-about .logo-group {
+                justify-content: center;
+            }
+            .footer-about div, .footer-links ul {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            header .menu-toggle {
+                display: block;
+                margin-top: 10px;
+            }
+            header nav {
+                width: 100%;
+                display: none; /* Скрыть меню по умолчанию, будет управляться JS */
+            }
+            header nav.active {
+                display: block; /* Показать меню при активном состоянии */
+            }
+            header nav ul {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            header nav li {
+                margin: 10px 0;
+            }
+            section h1 {
+                font-size: 36px;
+            }
+            .mission-description p {
+                font-size: 16px;
+            }
+            .mission-description h2 {
+                font-size: 28px;
+            }
+            .mission-info-block h3, .mission-participation-block h3 {
+                font-size: 20px;
+            }
+            .mission-rating span:first-child {
+                font-size: 28px;
+            }
+            .mission-rating span:last-child {
+                font-size: 16px;
+            }
+            .mission-participants span:first-child {
+                font-size: 20px;
+            }
+            .mission-participants span:last-child {
+                font-size: 16px;
+            }
+            .participate-button {
+                font-size: 18px;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Блок навигации (шапка страницы) -->
+    <header>
+        <div class="container">
+            <div class="logo-group">
+                <!-- Изображение логотипа -->
+                <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/48x48/00eaff/000022?text=🚀';">
+                <span>Звездные Горизонты</span>
+            </div>
+            <!-- Кнопка для мобильного меню (скрыта на больших экранах) -->
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <!-- Основная навигация -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="account.html">Мой Кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="competition.html">Миссии</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <section style="flex-grow: 1;">
+        <div class="container">
+            <div class="text-center">
+                <h1>Миссия: Исследование Экзопланеты X-7</h1>
+                <!-- Изображение экзопланеты -->
+                <img src="https://i.ibb.co/C3t3mSDs/3.png" alt="[Изображение планеты]" onerror="this.onerror=null;this.src='https://placehold.co/800x400/000022/00eaff?text=Экзопланета+X-7';">
+            </div>
+
+            <div class="mission-details-container bg-space-card">
+                <div class="mission-description">
+                    <h2>Описание Миссии</h2>
+                    <p>
+                        Миссия "Исследование Экзопланеты X-7" — это уникальная возможность для каждого исследователя погрузиться в изучение далеких миров. Вы сможете провести увлекательный анализ данных, полученных с космических телескопов, чтобы выявить потенциал планеты для будущей колонизации или обнаружения внеземной жизни.
+                    </p>
+                    <p>
+                        Мы предлагаем пошаговое руководство по интерпретации спектральных данных, анализу атмосферных составов и моделированию климатических условий. Участникам будет предоставлен доступ к передовым научным ресурсам и симуляторам, чтобы глубже понять особенности экзопланеты и предложить свои гипотезы.
+                    </p>
+                    <p>
+                        Эта программа подходит для всех энтузиастов космоса, от начинающих астрономов до опытных ученых. Основные критерии оценки: глубина анализа, оригинальность предложенных решений и качество итогового научного отчета. Лучшие работы будут опубликованы на нашей платформе, а исследователи-победители получат специальные награды и возможность представить свои открытия на международной конференции.
+                    </p>
+                    <!-- Пример цитаты от участника (для печати, без JS) -->
+                    <div style="margin-top: 32px; padding: 24px; border: 1px solid rgba(0,234,255,0.15); border-radius: 8px; background-color: rgba(0,0,30,0.8); color: #e0f2f7;">
+                        <p style="font-size: 18px; font-style: italic;">"Эта миссия стала настоящим приключением! Я узнал столько нового о далеких планетах и почувствовал себя частью великого открытия. Интерфейс очень удобный, а результаты вдохновляют на новые космические исследования. Очень рекомендую всем, кто мечтает о звездах!" - Космонавт Анна</p>
+                    </div>
+                </div>
+
+                <div class="mission-info-sidebar">
+                    <div class="mission-info-block bg-space-card">
+                        <h3>Информация о Миссии</h3>
+                        <div class="mission-info-item">
+                            <div class="text-light-space">Дата запуска:</div>
+                            <div class="text-light-space">15 августа 2025 года</div>
+                        </div>
+                        <div class="mission-info-item">
+                            <div class="text-light-space">Продолжительность:</div>
+                            <div class="text-light-space">Гибкий график</div>
+                        </div>
+                        <div class="mission-info-item">
+                            <div class="text-light-space">Платформа:</div>
+                            <div class="text-light-space">Онлайн-платформа</div>
+                        </div>
+                        <div class="mission-info-item">
+                            <div class="text-light-space">Категории участников:</div>
+                            <div class="text-light-space">Исследователи, ученые, энтузиасты</div>
+                        </div>
+                    </div>
+
+                    <div class="mission-participation-block bg-space-card">
+                        <h3>Участие в Миссии</h3>
+                        <div class="mission-rating">
+                            <span class="text-accent-link-space">★★★★★</span>
+                            <span class="text-light-space">4.9/5</span>
+                        </div>
+                        <div class="mission-participants">
+                            <span class="text-accent-link-space">👨‍🚀</span>
+                            <span class="text-light-space">287 экипажей участвуют</span>
+                        </div>
+                        <a href="account.html" class="participate-button">Записаться на миссию</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок футера (нижняя часть страницы) -->
+    <footer>
+        <div class="container">
+            <div class="footer-about">
+                <div class="logo-group">
+                    <!-- Изображение логотипа -->
+                    <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/40x40/00eaff/000022?text=🚀';">
+                    <span>Звездные Горизонты</span>
+                </div>
+                <div>
+                    Межзвездная почта: <a href="mailto:contact@starhorizons.space">contact@starhorizons.space</a>
+                </div>
+                <div>
+                    Космическая связь: <a href="tel:+19876543210">+1 (987) 654-3210</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Навигация по Галактике</h3>
+                <ul>
+                    <li><a href="index.html">Главная Станция</a></li>
+                    <li><a href="registration.html">Регистрация Экипажа</a></li>
+                    <li><a href="competition.html">Космические Миссии</a></li>
+                    <li><a href="account.html">Мой Космический Кабинет</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные Орбиты</h3>
+                <ul>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="404.html">О Проекте</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Звездные Горизонты. Все права на Вселенную защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
