@@ -1,1 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная Станция | Звездные Горизонты</title>
+    <style>
+        /* Глобальные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Стандартный шрифт */
+        }
 
+        body {
+            background-color: #000022; /* Темно-синий фон */
+            color: #e0f2f7; /* Светлый текст */
+            min-height: 100vh;
+            display: block;
+        }
+
+        /* Стилизация карточек и секций */
+        .bg-space-card {
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Акцентные цвета */
+        .accent-electric-blue {
+            background-color: #00eaff;
+        }
+        .text-vibrant-purple {
+            color: #a020f0;
+        }
+        .text-light-space {
+            color: #e0f2f7;
+        }
+        .text-accent-link-space {
+            color: #00eaff;
+        }
+        .footer-bg-space {
+            background-color: #00001a;
+        }
+
+        /* Стилизация шапки */
+        header {
+            background-color: rgba(0, 0, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+            padding: 20px 15px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            text-align: center;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #a020f0;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        header .logo-img {
+            height: 48px;
+            width: 48px;
+            vertical-align: middle;
+            margin-right: 10px;
+            border-radius: 50%; /* Круглый логотип */
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        header nav li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        header nav a {
+            color: #e0f2f7;
+            text-decoration: none;
+            font-weight: 600;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #a020f0;
+        }
+
+        /* Стилизация основного содержимого */
+        main {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .hero-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            color: #00eaff;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #e0f2f7;
+            margin-bottom: 30px;
+        }
+
+        .main-button {
+            display: inline-block;
+            background-color: #9333ea;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #6d28d9;
+        }
+
+        .section-container {
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #00eaff;
+            margin-bottom: 30px;
+        }
+
+        /* Стили для карусели (без JS, просто изображение) */
+        .carousel-placeholder img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 234, 255, 0.2);
+        }
+
+        /* Стили для видеоплеера (iframe) */
+        .video-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 450px; /* Задаем высоту для iframe */
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            overflow: hidden; /* Обрезаем, если iframe выходит за границы */
+        }
+
+        .video-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Убираем рамку iframe */
+            display: block;
+        }
+
+        .card-grid {
+            display: block;
+            text-align: center;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 30, 0.9);
+            border: 1px solid rgba(0, 234, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            display: inline-block;
+            vertical-align: top;
+            width: 300px;
+            text-align: left;
+        }
+
+        .card h3 {
+            color: #00eaff;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #a0aec0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Стилизация футера */
+        footer {
+            background-color: #00001a;
+            padding: 40px 15px;
+            margin-top: 50px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .footer-about, .footer-links {
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            margin: 0 1.5%;
+            text-align: left;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #e0f2f7;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        footer a:hover {
+            color: #a020f0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 68, 0.5);
+            color: #e0f2f7;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 1024px) {
+            .section-title {
+                font-size: 32px; /* Изменение 1: уменьшение размера заголовка */
+            }
+            .card {
+                width: 45%; /* Изменение 2: карточки по две в ряд */
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 796px) {
+            header nav li {
+                display: block; /* Изменение 3: меню становится вертикальным */
+                margin: 5px 0;
+            }
+            .hero-title {
+                font-size: 36px;
+            }
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            .card {
+                width: 90%; /* Изменение 4: карточки по одной в ряд */
+                margin: 10px auto;
+            }
+            .footer-about, .footer-links {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            footer h3, footer ul {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Блок навигации (шапка страницы) -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/48x48/00eaff/000022?text=🚀';">
+                Звездные Горизонты
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="competition.html">Миссии</a></li>
+                    <li><a href="account.html">Мой Кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li>
+                        <!-- Кнопка для смены темы (функционал не реализован) -->
+                        <button style="background-color: transparent; border: none; color: #00eaff; cursor: pointer; font-size: 18px; font-weight: bold;">
+                            <a href="index-light.html" style="color: #00eaff; text-decoration: none; transition-property: color; transition-duration: 0.3s;">Светлая тема</a>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Секция "Герой" -->
+        <section class="hero-section">
+            <h1 class="hero-title">Добро пожаловать в Звездные Горизонты!</h1>
+            <p class="hero-subtitle">Ваш путь к космическим открытиям и свершениям начинается здесь.</p>
+            <a href="registration.html" class="main-button">Присоединиться к Экспедиции</a>
+        </section>
+
+        <!-- Секция "Наши Проекты" -->
+        <section class="section-container">
+            <h2 class="section-title">Наши Проекты</h2>
+            <div class="carousel-placeholder">
+                <img src="https://i.ibb.co/C3t3mSDs/3.png" alt="[Изображение планеты]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000022/00eaff?text=Проект+1';">
+            </div>
+        </section>
+
+        <!-- Секция "Видео о нас" -->
+        <section class="section-container">
+            <h2 class="section-title">Видео о нас</h2>
+            <div class="video-placeholder">
+                <iframe src="https://vkvideo.ru/video_ext.php?oid=-198269324&id=456239031&hd=1&autoplay=1" width="640" height="360" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Секция "Почему мы?" -->
+        <section class="section-container">
+            <h2 class="section-title">Почему мы?</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Инновации</h3>
+                    <p>Мы поощряем самые смелые и новаторские идеи в области космоса.</p>
+                </div>
+                <div class="card">
+                    <h3>Сообщество</h3>
+                    <p>Присоединяйтесь к глобальному сообществу единомышленников.</p>
+                </div>
+                <div class="card">
+                    <h3>Обучение</h3>
+                    <p>Доступ к эксклюзивным материалам и экспертам отрасли.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Наши Партнеры" -->
+        <section class="section-container">
+            <h2 class="section-title">Наши Партнеры</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Космическая Корпорация 'Галактика'</h3>
+                    <p>Лидер в разработке ракетных двигателей.</p>
+                </div>
+                <div class="card">
+                    <h3>Лаборатория 'Квант'</h3>
+                    <p>Исследования в области теоретической физики космоса.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Команда" -->
+        <section class="section-container">
+            <h2 class="section-title">Команда</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Капитан Аврора</h3>
+                    <p>Руководитель проекта, главный стратег.</p>
+                </div>
+                <div class="card">
+                    <h3>Инженер Зета</h3>
+                    <p>Ведущий специалист по системам жизнеобеспечения.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Последние Новости" -->
+        <section class="section-container">
+            <h2 class="section-title">Последние Новости</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Экспедиция к Марсу</h3>
+                    <p>Началась подготовка к новой миссии.</p>
+                </div>
+                <div class="card">
+                    <h3>Конкурс 'Лучший Космодром'</h3>
+                    <p>Объявлены победители ежегодного конкурса.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция "Контакты" -->
+        <section class="section-container">
+            <h2 class="section-title">Контакты</h2>
+            <p>Email: info@stellar-horizons.com</p>
+            <p>Телефон: +7 (777) 123-45-67</p>
+            <p>Адрес: Космодром "Восток", Зона 51</p>
+        </section>
+    </main>
+
+    <!-- Блок футера (нижняя часть страницы) -->
+    <footer>
+        <div class="container">
+            <div class="footer-about">
+                <div style="display: block;">
+                    <!-- Изображение логотипа -->
+                    <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" style="height: 50px; width: 50px; margin-right: 15px; border-radius: 50%; display: inline-block; vertical-align: middle;" onerror="this.onerror=null;this.src='https://placehold.co/50x50/00eaff/000022?text=🚀';">
+                    <span style="font-size: 28px; font-weight: bold; color: #a020f0; display: inline-block; vertical-align: middle;">Звездные Горизонты</span>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    Межзвездная почта: <a href="mailto:contact@starhorizons.space" class="text-accent-link-space">contact@starhorizons.space</a>
+                </div>
+                <div>
+                    Космическая связь: <a href="tel:+19876543210" class="text-accent-link-space">+1 (987) 654-3210</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Навигация по Галактике</h3>
+                <ul>
+                    <li><a href="index.html">Главная Станция</a></li>
+                    <li><a href="registration.html">Регистрация Экипажа</a></li>
+                    <li><a href="competition.html">Космические Миссии</a></li>
+                    <li><a href="account.html">Мой Космический Кабинет</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные Орбиты</h3>
+                <ul>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="#about">О Проекте</a></li>
+                    <li><a href="#search">Поиск</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Звездные Горизонты. Все права на Вселенную защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
