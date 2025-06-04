@@ -1,1 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Космический Кабинет | Звездные Горизонты</title>
+    <style>
+        /* Глобальные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Стандартный шрифт */
+        }
 
+        body {
+            background-color: #000022; /* Темно-синий фон */
+            color: #e0f2f7; /* Светлый текст */
+            min-height: 100vh;
+            display: block;
+            line-height: 1.6; /* Межстрочный интервал */
+        }
+
+        /* Стилизация карточек и секций */
+        .bg-space-card {
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Акцентные цвета */
+        .accent-electric-blue {
+            background-color: #00eaff;
+        }
+        .text-vibrant-purple {
+            color: #a020f0;
+        }
+        .text-light-space {
+            color: #e0f2f7;
+        }
+        .text-accent-link-space {
+            color: #00eaff;
+        }
+        .footer-bg-space {
+            background-color: #00001a;
+        }
+
+        /* Стилизация шапки */
+        header {
+            background-color: rgba(0, 0, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+            padding: 20px 15px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex; /* Используем flexbox для шапки */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-group {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-group img {
+            height: 48px;
+            width: 48px;
+            margin-right: 16px;
+            border-radius: 50%;
+        }
+
+        header .logo-group span {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a020f0;
+        }
+
+        header .menu-toggle {
+            display: none; /* Скрыто на больших экранах */
+            font-size: 32px;
+            cursor: pointer;
+            color: #00eaff;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Горизонтальное меню */
+            align-items: center;
+        }
+
+        header nav li {
+            margin-left: 24px;
+        }
+
+        header nav a {
+            color: #e0f2f7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #a020f0;
+        }
+
+        /* Стилизация основного содержимого */
+        section {
+            padding: 64px 20px;
+            display: block;
+        }
+
+        section .container {
+            max-width: 960px; /* Ограничение ширины контента */
+            margin: 0 auto;
+            padding: 0 15px;
+            display: grid; /* Используем grid для колонок */
+            grid-template-columns: 1fr; /* По умолчанию одна колонка */
+            gap: 40px;
+        }
+
+        section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            grid-column: 1 / -1; /* Заголовок занимает всю ширину */
+        }
+
+        /* Карточка профиля космонавта */
+        .profile-card {
+            padding: 32px;
+        }
+
+        .profile-card .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-card .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 20px;
+        }
+
+        .profile-card .profile-info h3 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a020f0;
+            margin-bottom: 4px;
+        }
+
+        .profile-card .profile-info p {
+            color: #e0f2f7;
+            font-size: 16px;
+        }
+
+        .profile-card .profile-details {
+            margin-top: 20px;
+        }
+
+        .profile-card .profile-details div {
+            margin-bottom: 16px;
+        }
+
+        .profile-card .profile-details div:first-child {
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #a0aec0;
+        }
+
+        .profile-card .profile-details div:last-child {
+            font-size: 18px;
+            color: #e0f2f7;
+        }
+
+        .profile-card .logout-btn {
+            display: block;
+            width: 100%;
+            background-color: #dc2626; /* Красный фон */
+            color: white;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 32px;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .profile-card .logout-btn:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Форма записи на космическую миссию */
+        .booking-form {
+            padding: 32px;
+        }
+
+        .booking-form h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a020f0;
+            margin-bottom: 24px;
+        }
+
+        .booking-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .booking-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: #e0f2f7;
+        }
+
+        .booking-form .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            color: #e0f2f7;
+            font-size: 16px;
+            transition-property: border-color;
+            transition-duration: 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #00eaff;
+            outline: none;
+        }
+
+        .booking-form .flex-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .booking-form .flex-group > div {
+            flex: 1;
+        }
+
+        .booking-form .submit-button {
+            width: 100%;
+            background-color: #00eaff;
+            color: #000022;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .booking-form .submit-button:hover {
+            background-color: #00b8cc;
+        }
+
+        /* Список предстоящих миссий */
+        .bookings-list {
+            padding: 32px;
+        }
+
+        .bookings-list h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a020f0;
+            margin-bottom: 24px;
+        }
+
+        .booking-item {
+            padding: 20px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .booking-item .booking-info .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00eaff;
+            margin-bottom: 4px;
+        }
+
+        .booking-item .booking-info .details {
+            color: #e0f2f7;
+            font-size: 14px;
+        }
+
+        .booking-item .cancel-btn {
+            background-color: #dc2626; /* Красный фон */
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        .booking-item .cancel-btn:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Стилизация футера */
+        footer {
+            background-color: #00001a;
+            padding: 40px 15px;
+            margin-top: 50px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка для колонок */
+            gap: 40px;
+        }
+
+        .footer-about .logo-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-about .logo-group img {
+            height: 40px;
+            width: 40px;
+            margin-right: 12px;
+            border-radius: 50%;
+        }
+
+        .footer-about .logo-group span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #a020f0;
+        }
+
+        .footer-about div {
+            margin-bottom: 8px;
+            color: #e0f2f7;
+        }
+
+        .footer-about a {
+            color: #00eaff;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-about a:hover {
+            color: #a020f0;
+        }
+
+        .footer-links h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #e0f2f7;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #a020f0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 68, 0.5);
+            color: #e0f2f7;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (min-width: 769px) {
+            section .container {
+                grid-template-columns: 1fr 1fr; /* Две колонки на планшетах и выше */
+            }
+            section h1 {
+                grid-column: 1 / -1; /* Заголовок все еще занимает всю ширину */
+            }
+            .bookings-list {
+                grid-column: 2 / 3; /* Список миссий во второй колонке */
+                grid-row: 2 / 3; /* Во второй строке */
+            }
+        }
+
+        @media (min-width: 1025px) {
+            section .container {
+                grid-template-columns: 1fr 1fr 1fr; /* Три колонки на десктопах */
+            }
+            .profile-card {
+                grid-column: 1 / 2; /* Карточка профиля в первой колонке */
+                grid-row: 2 / 3; /* Во второй строке */
+            }
+            .booking-form {
+                grid-column: 2 / 3; /* Форма записи во второй колонке */
+                grid-row: 2 / 3; /* Во второй строке */
+            }
+            .bookings-list {
+                grid-column: 3 / 4; /* Список миссий в третьей колонке */
+                grid-row: 2 / 3; /* Во второй строке */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            header .menu-toggle {
+                display: block;
+                margin-top: 10px;
+            }
+            header nav {
+                width: 100%;
+                display: none; /* Скрыть меню по умолчанию, будет управляться JS */
+            }
+            header nav.active {
+                display: block; /* Показать меню при активном состоянии */
+            }
+            header nav ul {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            header nav li {
+                margin: 10px 0;
+            }
+            section h1 {
+                font-size: 36px;
+            }
+            .profile-card, .booking-form, .bookings-list {
+                padding: 20px; /* Уменьшаем отступы */
+            }
+            .profile-card .profile-info h3 {
+                font-size: 24px;
+            }
+            .booking-form h2, .bookings-list h2 {
+                font-size: 24px;
+            }
+            .booking-form .flex-group {
+                flex-direction: column; /* Элементы формы становятся вертикальными */
+                gap: 10px;
+            }
+            .booking-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .booking-item .booking-info .title {
+                font-size: 18px;
+            }
+            .booking-item .booking-info .details {
+                font-size: 12px;
+            }
+            .booking-item .cancel-btn {
+                width: 100%; /* Кнопка отмены занимает всю ширину */
+            }
+            footer .container {
+                grid-template-columns: 1fr; /* Колонки футера становятся вертикальными */
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-about .logo-group {
+                justify-content: center;
+            }
+            .footer-about div, .footer-links ul {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Блок навигации (шапка страницы) -->
+    <header>
+        <div class="container">
+            <div class="logo-group">
+                <!-- Изображение логотипа -->
+                <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/48x48/00eaff/000022?text=🚀';">
+                <span>Звездные Горизонты</span>
+            </div>
+            <!-- Кнопка для мобильного меню (скрыта на больших экранах) -->
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <!-- Основная навигация -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="account.html">Мой Кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="competition.html">Миссии</a></li>
+                    <li><a href="index.html" style="color: #ef4444;">Выход из Кабинета</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <section style="flex-grow: 1;">
+        <div class="container">
+            <h1>Мой Космический Кабинет</h1>
+
+            <!-- Карточка профиля космонавта -->
+            <div class="profile-card bg-space-card">
+                <div class="profile-header">
+                    <!-- Изображение профиля космонавта -->
+                    <div class="profile-avatar" style="background-image: url('https://i.ibb.co/nsxmdMhX/1.png');" onerror="this.onerror=null;this.style.backgroundImage='url(https://placehold.co/80x80/1a0033/00eaff?text=👨‍🚀)';"></div>
+                    <div class="profile-info">
+                        <h3>Космонавт Валентина</h3>
+                        <p>Исследователь миссий</p>
+                    </div>
+                </div>
+
+                <div class="profile-details">
+                    <div>
+                        <div class="text-light-space">Межзвездная почта</div>
+                        <div class="text-light-space">explorer@starhorizons.space</div>
+                    </div>
+                    <div>
+                        <div class="text-light-space">Космический телефон</div>
+                        <div class="text-light-space">+1 (987) 654-3210</div>
+                    </div>
+                    <div>
+                        <div class="text-light-space">Дата регистрации</div>
+                        <div class="text-light-space">02.02.2020</div>
+                    </div>
+                    <div>
+                        <div class="text-light-space">Участие в миссиях</div>
+                        <div class="text-light-space">5</div>
+                    </div>
+
+                    <!-- Кнопка выхода из профиля (статическая) -->
+                    <a href="index.html" class="logout-btn">Выход из Кабинета</a>
+                </div>
+            </div>
+
+            <!-- Форма записи на космическую миссию (статическая) -->
+            <div class="booking-form bg-space-card">
+                <h2>Запись на Миссию</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="competition">Миссия*</label>
+                        <select id="competition" class="form-input">
+                            <option value="">Выберите миссию</option>
+                            <option value="1">Исследование Марса</option>
+                            <option value="2">Полет к Юпитеру</option>
+                            <option value="3">Анализ Черных Дыр</option>
+                            <option value="4">Поиск Экзопланет</option>
+                            <option value="5">Разработка Новых Двигателей</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Дата запуска*</label>
+                        <input type="text" id="date" class="form-input" value="8 июля 2024" readonly>
+                    </div>
+
+                    <div class="flex-group">
+                        <div>
+                            <label for="time">Время запуска*</label>
+                            <select id="time" class="form-input">
+                                <option value="">Выберите время</option>
+                                <option value="9:00">09:00 (Полет)</option>
+                                <option value="10:00">10:00 (Брифинг)</option>
+                                <option value="11:00">11:00 (Исследование)</option>
+                                <option value="12:00">12:00 (Сбор данных)</option>
+                                <option value="13:00">13:00 (Анализ)</option>
+                                <option value="14:00">14:00 (Доклад)</option>
+                                <option value="15:00">15:00 (Возвращение)</option>
+                                <option value="16:00">16:00 (Дебрифинг)</option>
+                                <option value="17:00">17:00 (Отдых)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="people">Членов экипажа*</label>
+                            <input type="number" id="people" class="form-input" min="1" max="10" value="1">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button accent-electric-blue">Записаться на Миссию</button>
+                </form>
+            </div>
+
+            <!-- Список предстоящих миссий (статический) -->
+            <div class="bookings-list bg-space-card">
+                <h2>Предстоящие Миссии</h2>
+
+                <div class="booking-item bg-space-card">
+                    <div class="booking-info">
+                        <div class="title">Исследование Марса</div>
+                        <div class="details">8 июля 2024, 11:00 • 10 членов экипажа</div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="cancel-btn">Отменить</button>
+                    </div>
+                </div>
+
+                <div class="booking-item bg-space-card">
+                    <div class="booking-info">
+                        <div class="title">Полет к Юпитеру</div>
+                        <div class="details">8 июля 2024, 14:00 • 6 членов экипажа</div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="cancel-btn">Отменить</button>
+                    </div>
+                </div>
+
+                <div class="booking-item bg-space-card">
+                    <div class="booking-info">
+                        <div class="title">Анализ Черных Дыр</div>
+                        <div class="details">8 июля 2024, 16:00 • 3 члена экипажа</div>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="cancel-btn">Отменить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок футера (нижняя часть страницы) -->
+    <footer class="footer-bg-space">
+        <div class="container">
+            <div class="footer-about">
+                <div class="logo-group">
+                    <!-- Изображение логотипа -->
+                    <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/40x40/00eaff/000022?text=🚀';">
+                    <span>Звездные Горизонты</span>
+                </div>
+                <div>
+                    Межзвездная почта: <a href="mailto:contact@starhorizons.space">contact@starhorizons.space</a>
+                </div>
+                <div>
+                    Космическая связь: <a href="tel:+19876543210">+1 (987) 654-3210</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Навигация по Галактике</h3>
+                <ul>
+                    <li><a href="index.html">Главная Станция</a></li>
+                    <li><a href="competition.html">Космические Миссии</a></li>
+                    <li><a href="account.html">Мой Космический Кабинет</a></li>
+                    <li><a href="index.html">Выход из Кабинета</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные Орбиты</h3>
+                <ul>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="404.html">О Проекте</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Звездные Горизонты. Все права на Вселенную защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
