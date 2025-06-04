@@ -1,1 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка 404: Ритм Сбился | Звездные Горизонты</title>
+    <style>
+        /* Глобальные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Стандартный шрифт */
+        }
 
+        body {
+            background-color: #000022; /* Темно-синий фон */
+            color: #e0f2f7; /* Светлый текст */
+            min-height: 100vh;
+            display: flex; /* Используем flexbox для центрирования содержимого */
+            flex-direction: column;
+            justify-content: space-between; /* Распределяем пространство между шапкой, контентом и футером */
+            align-items: center; /* Центрируем по горизонтали */
+            line-height: 1.6; /* Межстрочный интервал */
+        }
+
+        /* Стилизация карточек и секций */
+        .bg-space-card {
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Акцентные цвета */
+        .accent-electric-blue {
+            background-color: #00eaff;
+        }
+        .text-vibrant-purple {
+            color: #a020f0;
+        }
+        .text-light-space {
+            color: #e0f2f7;
+        }
+        .text-accent-link-space {
+            color: #00eaff;
+        }
+        .footer-bg-space {
+            background-color: #00001a;
+        }
+
+        /* Стилизация шапки */
+        header {
+            background-color: rgba(0, 0, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+            padding: 20px 15px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Шапка занимает всю ширину */
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-group {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-group img {
+            height: 48px;
+            width: 48px;
+            margin-right: 16px;
+            border-radius: 50%;
+        }
+
+        header .logo-group span {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a020f0;
+        }
+
+        header .menu-toggle {
+            display: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: #00eaff;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        header nav li {
+            margin-left: 24px;
+        }
+
+        header nav a {
+            color: #e0f2f7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #a020f0;
+        }
+
+        /* Стилизация основного содержимого (страница 404) */
+        main {
+            flex-grow: 1; /* Занимает доступное пространство */
+            padding: 64px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        main h1 {
+            font-size: 120px;
+            color: #00eaff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        main h2 {
+            font-size: 36px;
+            color: #e0f2f7;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 18px;
+            color: #a0aec0;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        main .return-button {
+            display: inline-block;
+            background-color: #9333ea;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+        }
+
+        main .return-button:hover {
+            background-color: #6d28d9;
+        }
+
+        /* Стилизация футера */
+        footer {
+            background-color: #00001a;
+            padding: 40px 15px;
+            margin-top: 50px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+            width: 100%; /* Футер занимает всю ширину */
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-about .logo-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-about .logo-group img {
+            height: 40px;
+            width: 40px;
+            margin-right: 12px;
+            border-radius: 50%;
+        }
+
+        .footer-about .logo-group span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #a020f0;
+        }
+
+        .footer-about div {
+            margin-bottom: 8px;
+            color: #e0f2f7;
+        }
+
+        .footer-about a {
+            color: #00eaff;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-about a:hover {
+            color: #a020f0;
+        }
+
+        .footer-links h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #e0f2f7;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #a020f0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 68, 0.5);
+            color: #e0f2f7;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            header .menu-toggle {
+                display: block;
+                margin-top: 10px;
+            }
+            header nav {
+                width: 100%;
+                display: none; /* Скрыть меню по умолчанию, будет управляться JS */
+            }
+            header nav.active {
+                display: block; /* Показать меню при активном состоянии */
+            }
+            header nav ul {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            header nav li {
+                margin: 10px 0;
+            }
+            main h1 {
+                font-size: 80px;
+            }
+            main h2 {
+                font-size: 28px;
+            }
+            main p {
+                font-size: 16px;
+            }
+            footer .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-about .logo-group {
+                justify-content: center;
+            }
+            .footer-about div, .footer-links ul {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Блок навигации (шапка страницы) -->
+    <header>
+        <div class="container">
+            <div class="logo-group">
+                <!-- Изображение логотипа -->
+                <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/48x48/00eaff/000022?text=🚀';">
+                <span>Звездные Горизонты</span>
+            </div>
+            <!-- Кнопка для мобильного меню (скрыта на больших экранах) -->
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <!-- Основная навигация -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="account.html">Мой Кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="competition.html">Миссии</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <main>
+        <h1>404</h1>
+        <h2>Ритм Сбился: Страница Не Найдена</h2>
+        <p>
+            Ох, кажется, ваша навигационная система дала сбой.
+            Запрашиваемая страница скрылась где-то в просторах космоса.
+            Не волнуйтесь, это всего лишь временное отклонение от курса.
+        </p>
+        <a href="index.html" class="return-button">Вернуться на Главную Станцию</a>
+    </main>
+
+    <!-- Блок футера (нижняя часть страницы) -->
+    <footer>
+        <div class="container">
+            <div class="footer-about">
+                <div class="logo-group">
+                    <!-- Изображение логотипа -->
+                    <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" onerror="this.onerror=null;this.src='https://placehold.co/40x40/00eaff/000022?text=🚀';">
+                    <span>Звездные Горизонты</span>
+                </div>
+                <div>
+                    Межзвездная почта: <a href="mailto:contact@starhorizons.space">contact@starhorizons.space</a>
+                </div>
+                <div>
+                    Космическая связь: <a href="tel:+19876543210">+1 (987) 654-3210</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Навигация по Галактике</h3>
+                <ul>
+                    <li><a href="index.html">Главная Станция</a></li>
+                    <li><a href="registration.html">Регистрация Экипажа</a></li>
+                    <li><a href="competition.html">Космические Миссии</a></li>
+                    <li><a href="account.html">Мой Космический Кабинет</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные Орбиты</h3>
+                <ul>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="404.html">О Проекте</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Звездные Горизонты. Все права на Вселенную защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
