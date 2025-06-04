@@ -1,1 +1,600 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация Экипажа | Звездные Горизонты</title>
+    <style>
+        /* Глобальные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Стандартный шрифт */
+        }
 
+        body {
+            background-color: #000022; /* Темно-синий фон */
+            color: #e0f2f7; /* Светлый текст */
+            min-height: 100vh;
+            display: block;
+        }
+
+        /* Стилизация карточек и секций */
+        .bg-space-card {
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Акцентные цвета */
+        .accent-electric-blue {
+            background-color: #00eaff;
+        }
+        .text-vibrant-purple {
+            color: #a020f0;
+        }
+        .text-light-space {
+            color: #e0f2f7;
+        }
+        .text-accent-link-space {
+            color: #00eaff;
+        }
+        .footer-bg-space {
+            background-color: #00001a;
+        }
+
+        /* Стилизация шапки */
+        header {
+            background-color: rgba(0, 0, 30, 0.8);
+            border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+            padding: 20px 15px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            text-align: center;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #a020f0;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        header .logo-img {
+            height: 48px;
+            width: 48px;
+            vertical-align: middle;
+            margin-right: 10px;
+            border-radius: 50%; /* Круглый логотип */
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        header nav li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        header nav a {
+            color: #e0f2f7;
+            text-decoration: none;
+            font-weight: 600;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #a020f0;
+        }
+
+        /* Стилизация основного содержимого */
+        section {
+            padding: 40px 15px;
+            display: block; /* Используем блочное отображение */
+            width: 100%;
+        }
+
+        section .container {
+            max-width: 960px; /* Уменьшаем max-width для формы */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        form {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            color: #e0f2f7;
+            font-size: 16px;
+            transition-property: border-color;
+            transition-duration: 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #00eaff;
+            outline: none;
+        }
+
+        /* Стилизация радиокнопок и чекбоксов */
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle; /* Выравнивание с текстом */
+            background-color: rgba(0, 0, 30, 0.8);
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            border-radius: 3px; /* Небольшое скругление */
+            appearance: none; /* Убираем стандартный вид */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="radio"]:checked,
+        input[type="checkbox"]:checked {
+            background-color: #00eaff; /* Акцентный цвет при выборе */
+            border-color: #00eaff;
+        }
+
+        input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #000022; /* Цвет центрального круга */
+            margin: 4px; /* Центрируем круг */
+        }
+
+        input[type="checkbox"]:checked::before {
+            content: '✔'; /* Простая галочка */
+            display: block;
+            color: #000022;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .form-group .flex-wrap {
+            display: block; /* Упрощаем до блочного */
+        }
+
+        .form-group .flex-wrap label {
+            display: inline-block; /* Элементы в ряд */
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+
+        /* Стилизация загрузки файла */
+        .file-upload {
+            border: 2px dashed rgba(0, 234, 255, 0.3);
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition-property: border-color;
+            transition-duration: 0.3s;
+            display: block; /* Занимает всю ширину */
+            margin-top: 10px;
+        }
+
+        .file-upload:hover {
+            border-color: #00eaff;
+        }
+
+        .file-upload-icon {
+            color: #00eaff;
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .file-upload input[type="file"] {
+            display: none; /* Скрываем стандартный инпут файла */
+        }
+
+        /* Стилизация кнопок */
+        .submit-btn, #add-member-btn {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            background-color: #00eaff;
+            color: #000022;
+        }
+
+        .submit-btn:hover {
+            background-color: #00b8cc;
+        }
+
+        #add-member-btn {
+            background-color: #a020f0; /* Фиолетовый для кнопки добавления */
+            color: #e0f2f7;
+        }
+
+        #add-member-btn:hover {
+            background-color: #8018c0;
+        }
+
+        /* Стилизация членов экипажа (статическая, без JS добавления/удаления) */
+        .family-member {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative; /* Для позиционирования кнопки удаления */
+        }
+
+        .family-member .remove-member {
+            background-color: #dc2626; /* Красный фон */
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%; /* Круглая форма */
+            font-weight: bold;
+            cursor: pointer;
+            display: block; /* Чтобы кнопка была видимой */
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+            text-align: center;
+            line-height: 32px; /* Центрируем "х" */
+        }
+
+        .family-member .remove-member:hover {
+            background-color: #b91c1c;
+        }
+
+        .family-member .grid-cols-1 {
+            display: block; /* Упрощаем до блочного */
+        }
+
+        /* Стилизация футера */
+        footer {
+            background-color: #00001a;
+            padding: 40px 15px;
+            margin-top: 50px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .footer-about, .footer-links {
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            margin: 0 1.5%;
+            text-align: left;
+        }
+
+        footer h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #e0f2f7;
+            text-decoration: none;
+            transition-property: color;
+            transition-duration: 0.3s;
+        }
+
+        footer a:hover {
+            color: #a020f0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 68, 0.5);
+            color: #e0f2f7;
+            font-size: 14px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 768px) {
+            header nav li {
+                display: block;
+                margin: 5px 0;
+            }
+            section h1 {
+                font-size: 28px;
+            }
+            form {
+                padding: 20px;
+            }
+            .form-group .flex-wrap label {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .footer-about, .footer-links {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            footer h3, footer ul {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .submit-btn, #add-member-btn {
+                font-size: 18px;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Блок навигации (шапка страницы) -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/48x48/00eaff/000022?text=🚀';">
+                Звездные Горизонты
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="account.html">Мой Кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="competition.html">Миссии</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <section style="padding-top: 64px; padding-bottom: 64px;">
+        <div class="container">
+            <h1>Регистрация Экипажа</h1>
+
+            <form>
+                <div style="display: block;">
+                    <div style="display: inline-block; width: 48%; margin-right: 4%;">
+                        <div class="form-group">
+                            <label for="email">Электронная почта*</label>
+                            <input type="email" id="email" class="form-input">
+                            <div class="error-message">Пожалуйста, введите корректный адрес электронной почты.</div>
+                        </div>
+                    </div>
+                    <div style="display: inline-block; width: 48%;">
+                        <div class="form-group">
+                            <label for="first-name">Имя*</label>
+                            <input type="text" id="first-name" class="form-input">
+                            <div class="error-message">Пожалуйста, введите ваше имя.</div>
+                        </div>
+                    </div>
+                    <div style="display: inline-block; width: 48%; margin-right: 4%;">
+                        <div class="form-group">
+                            <label for="last-name">Фамилия*</label>
+                            <input type="text" id="last-name" class="form-input">
+                            <div class="error-message">Пожалуйста, введите вашу фамилию.</div>
+                        </div>
+                    </div>
+                    <div style="display: inline-block; width: 48%;">
+                        <div class="form-group">
+                            <label for="age">Возраст*</label>
+                            <input type="number" id="age" class="form-input" min="1" max="120">
+                            <div class="error-message">Пожалуйста, укажите ваш возраст.</div>
+                        </div>
+                    </div>
+                    <div style="display: block; width: 100%;">
+                        <div class="form-group">
+                            <label>Пол*</label>
+                            <div class="flex-wrap">
+                                <label style="display: inline-block; margin-right: 20px;">
+                                    <input type="radio" name="gender" value="male"> Мужской
+                                </label>
+                                <label style="display: inline-block;">
+                                    <input type="radio" name="gender" value="female"> Женский
+                                </label>
+                            </div>
+                            <div class="error-message">Пожалуйста, укажите ваш пол.</div>
+                        </div>
+                    </div>
+                    <div style="display: inline-block; width: 48%; margin-right: 4%;">
+                        <div class="form-group">
+                            <label for="password">Пароль*</label>
+                            <input type="password" id="password" class="form-input">
+                            <div class="error-message">Пароль должен содержать не менее 8 символов.</div>
+                        </div>
+                    </div>
+                    <div style="display: inline-block; width: 48%;">
+                        <div class="form-group">
+                            <label for="confirm-password">Повторите пароль*</label>
+                            <input type="password" id="confirm-password" class="form-input">
+                            <div class="error-message">Пароли не совпадают.</div>
+                        </div>
+                    </div>
+
+                    <div style="display: block; width: 100%;">
+                        <div class="form-group">
+                            <label>Фотография для пропуска*</label>
+                            <label for="family-photo" class="file-upload">
+                                <div class="file-upload-icon">+</div>
+                                <div class="text-light-space">Загрузите фотографию для пропуска</div>
+                                <input type="file" id="family-photo" accept="image/*">
+                            </label>
+                            <div class="error-message">Пожалуйста, загрузите фотографию.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Члены экипажа</h2>
+                <div id="family-members-container" style="display: block;">
+                    <div class="family-member bg-space-card">
+                        <button type="button" class="remove-member">×</button>
+                        <div style="display: block;">
+                            <div style="display: inline-block; width: 48%; margin-right: 4%;">
+                                <div class="form-group">
+                                    <label>Фамилия</label>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                            <div style="display: inline-block; width: 48%;">
+                                <div class="form-group">
+                                    <label>Имя</label>
+                                    <input type="text" class="form-input">
+                                </div>
+                            </div>
+                            <div style="display: inline-block; width: 48%; margin-right: 4%;">
+                                <div class="form-group">
+                                    <label>Возраст</label>
+                                    <input type="number" class="form-input" min="1" max="120">
+                                </div>
+                            </div>
+                            <div style="display: inline-block; width: 48%;">
+                                <div class="form-group">
+                                    <label>Пол</label>
+                                    <select class="form-input">
+                                        <option value="">Выберите пол</option>
+                                        <option value="male">Мужской</option>
+                                        <option value="female">Женский</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="add-member-btn" class="accent-electric-blue">
+                    + Добавить члена экипажа
+                </button>
+
+                <div style="display: block; margin-top: 30px;">
+                    <div style="display: inline-block; vertical-align: middle;">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">Я согласен на обработку данных для миссии*</label>
+                    </div>
+                    <button type="submit" class="submit-btn accent-electric-blue">
+                        Зарегистрироваться в экипаж
+                    </button>
+                </div>
+            </form>
+
+            <!-- Модальное окно для сообщений (функционал не реализован в HTML) -->
+            <div id="message-box" style="display: none;">
+                <div class="bg-space-card">
+                    <h3 id="message-title"></h3>
+                    <p id="message-content"></p>
+                    <button id="close-message-btn" class="accent-electric-blue">Закрыть</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Блок футера (нижняя часть страницы) -->
+    <footer>
+        <div class="container">
+            <div class="footer-about">
+                <div style="display: block;">
+                    <!-- Изображение логотипа (космическая тематика) -->
+                    <img src="https://i.ibb.co/NgM1BVG9/2.png" alt="[Изображение логотипа Звездные Горизонты]" style="height: 50px; width: 50px; margin-right: 15px; border-radius: 50%; display: inline-block; vertical-align: middle;" onerror="this.onerror=null;this.src='https://placehold.co/50x50/00eaff/000022?text=🚀';">
+                    <span style="font-size: 28px; font-weight: bold; color: #a020f0; display: inline-block; vertical-align: middle;">Звездные Горизонты</span>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    Межзвездная почта: <a href="mailto:contact@starhorizons.space" class="text-accent-link-space">contact@starhorizons.space</a>
+                </div>
+                <div>
+                    Космическая связь: <a href="tel:+19876543210" class="text-accent-link-space">+1 (987) 654-3210</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Навигация по Галактике</h3>
+                <ul>
+                    <li><a href="index.html">Главная Станция</a></li>
+                    <li><a href="registration.html">Регистрация Экипажа</a></li>
+                    <li><a href="competition.html">Космические Миссии</a></li>
+                    <li><a href="account.html">Мой Космический Кабинет</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Полезные Орбиты</h3>
+                <ul>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="404.html">О Проекте</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Звездные Горизонты. Все права на Вселенную защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
